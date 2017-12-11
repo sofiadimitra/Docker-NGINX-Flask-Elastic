@@ -1,17 +1,17 @@
-# Docker-NGINX-NG5-Flask-Elastic
+## Docker-NGINX-NG5-FLASK-ELASTIC
 This is a Docker image for Nginx + Angular 5 + Flask + Elasticksearch
 
-## Run and Build the image with this command:
+### Run and Build the image with this command:
 - docker-compose up --build 
 
-## Stop the image with this command:
+### Stop the image with this command:
 - docker-compose stop 
 
-## Stop and Remove the image with this command:
+### Stop and Remove the image with this command:
 This command wille stop the instance and is gonna delete the containers
 - docker-compose down 
 
-## Dependencies
+### Dependencies
 - Nginx:1.13.7-alpine 
 - Python:3.6.3
 - Elasticsearch:6.0.1
