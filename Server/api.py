@@ -1,4 +1,4 @@
-''' Docker + python 3.6.3 '''
+''' Docker + python 3.6.3 and Elasticsearch 6.0.1 '''
 
 from flask import Flask, jsonify
 from elasticsearch import Elasticsearch
@@ -7,7 +7,7 @@ import os
 
 
 es_host = os.environ['ELASTICSEARCH_HOST'] # 127.0.0.1
-es_port = os.environ['ELASTICSEARCH_PORT'] # 127.0.0.1
+es_port = os.environ['ELASTICSEARCH_PORT'] # 9200
 
 # IF ENV DONT WORK TRY THIS.
 # es_host = 'elasticsearch'
@@ -21,9 +21,6 @@ print('Elastic port is {}'.format(es_port))
 # by default we don't sniff, ever
 es = Elasticsearch([{'host': es_host, 'port': es_port}])
 
-
-
-
 app = Flask(__name__)
 
 @app.route('/api')
@@ -34,7 +31,7 @@ def api_root():
     print('Elastic port is {}'.format(es_port))
 
     return jsonify({
-        'status': 1, 
+        'status': 1,
         'route': 'api',
         'api version': 'v1.0',
         'Elastic host is': es_host,
@@ -43,7 +40,7 @@ def api_root():
 
 @app.route('/api/users')
 def api_users():
-    ''' This is the default api route '''
+    ''' Users api '''
 
     return jsonify([
         {
@@ -60,19 +57,14 @@ def api_users():
 
 
 
-# ? info
-# ! error
-# TODO some todo
-# * some comment
-
-
-
 @app.route('/api/info')
 def api_info():
+    ''' Get the elasticsearch info '''
     return jsonify(es.info())
 
 @app.route('/api/health')
 def api_health():
+    ''' Get the elasticsearch cluster health '''
     return jsonify(es.cluster.health())
 
 if __name__ == "__main__":

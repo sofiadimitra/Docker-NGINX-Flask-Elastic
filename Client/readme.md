@@ -1,1 +1,1 @@
-inside heare is the angular files
+Put your Angular 5 dist files here
