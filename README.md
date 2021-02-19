@@ -25,9 +25,6 @@ This command wille stop the instance and is gonna delete the containers
     |__Client
     |   |__dist
     |      |__index.html
-    |      |__main.js
-    |      |__main.css
-    |   
     |
     |__Nginx
     |   |__Dockerfile
