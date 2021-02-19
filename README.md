@@ -1,4 +1,4 @@
-## Docker-NGINX-NG5-FLASK-ELASTIC
+## Docker-NGINX-FLASK-ELASTIC
 This is a Docker image for Nginx + Flask + Elasticsearch
 
 ### Run and Build the image with this command:
