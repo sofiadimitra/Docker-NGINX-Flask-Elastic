@@ -16,12 +16,10 @@ es_port = os.environ['ELASTICSEARCH_PORT'] # 9200
 print('Elastic host is {}'.format(es_host))
 print('Elastic port is {}'.format(es_port))
 
-
-
-# by default we don't sniff, ever
 es = Elasticsearch([{'host': es_host, 'port': es_port}])
 
 app = Flask(__name__)
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
 @app.route('/api')
 def api_root():
@@ -45,13 +43,18 @@ def api_users():
     return jsonify([
         {
             'id': 1,
-            'name': 'George',
-            'created': '1/7/2017'
+            'fname': 'User1',
+            'created': '17/2/2021'
         },
         {
             'id': 2,
-            'name': 'Marios',
-            'created': '2/7/2017'
+            'fname': 'User2',
+            'created': '18/2/2021'
+        },
+        {
+            'id': 3,
+            'fname': 'User3',
+            'created': '18/2/2021'
         },
     ])
 
